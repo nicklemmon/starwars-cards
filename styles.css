@@ -1,0 +1,170 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css?family=Mada');
+@import 'reset.css';
+
+/* Variables */
+:root {
+  --medium-gray: #566573;
+  --dark-gray: #2C3E50;
+  --light-gray: #808B96;
+
+  --medium-red: #EC7063;
+  --dark-red: #E74C3C;
+  --light-red: #F1948A;
+
+  --medium-blue: #5DB2E2;
+  --dark-blue: #359EDB;
+  --light-blue: #86C5EA;
+
+  --medium-green: #5DE2D3;
+  --dark-green: #35DBC8;
+  --light-green: #86EADE;
+
+  --medium-white: #F0F3F4;
+  --dark-white: #ECF0F1;
+  --light-white: #F4F6F7;
+
+  --background: var(--light-white);
+  --foreground: var(--foreground);
+  --middleground: var(--light-gray);
+
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+}
+
+/* Climates */
+.unknown {
+  --accent: var(--medium-gray);
+}
+
+.temperate,
+.tropical,
+.humid,
+.moist {
+  --accent: var(--dark-green);
+}
+
+.frozen,
+.frigid,
+.subartic,
+.artic,
+.windy {
+  --accent: var(--medium-blue);
+}
+
+.murky,
+.polluted {
+  --accent: var(--light-gray);
+}
+
+.arid,
+.hot,
+.superheated {
+  --accent: var(--medium-red);
+}
+
+.artificial {
+  --accent: var(--medium-gray);
+}
+
+/* The Rest o' the Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 17px;
+  font-family: 'Mada', sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.app {
+  background: #f7f7f7;
+  padding: var(--spacing-lg);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 2.5vw;
+}
+
+.card {
+  display: block;
+  list-style-type: none;
+  height: 250px;
+  background: var(--background);
+  color: var(--foreground);
+  padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-md) var(--spacing-sm);
+  position: relative;
+  overflow: hidden;
+  border-bottom: var(--spacing-xs) solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 var(--spacing-md) rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem 0.25rem 0.5rem 0.5rem;
+}
+
+/* Climate modifiers */
+
+.card__content {
+  position: relative;
+  z-index: 2;
+}
+
+.card__planet {
+  position: absolute;
+  z-index: 1;
+  height: 15em;
+  width: 15em;
+  top: -2.5em;
+  left: -2.5em;
+}
+
+.card__name,
+.card__subtitle,
+.card__population {
+  display: block;
+}
+
+.card__name {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+}
+
+.card__subtitle {
+  color: var(--middleground);
+  font-size: 0.85em;
+  margin-bottom: var(--spacing-xxs);
+}
+
+.card__climate {
+  display: inline-block;
+  line-height: 0;
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  color: #fff;
+  background: var(--accent);
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.125em;
+  box-shadow: inset 0 -0.25em 0 rgba(0, 0, 0, 0.125);
+}
+
+/* Planet */
+.planet__base {
+  fill: var(--light-white);
+}
+
+.planet__shadow,
+.planet__craters {
+  fill: var(--dark-white);
+}
